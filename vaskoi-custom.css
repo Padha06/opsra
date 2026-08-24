@@ -49,6 +49,25 @@ img[alt="Vaskoi logo"] {
   display: none !important;
 }
 
+/* Hide the SaaS testimonial card in hero area */
+.framer-1eu4jb3,
+.framer-1x5bets,
+.framer-1dm99k {
+  display: none !important;
+}
+
+/* Hide SaaS pricing section */
+#pricing,
+section[data-framer-name="Pricing"] {
+  display: none !important;
+}
+
+/* Hide SaaS comparison section */
+#comparison,
+section[data-framer-name="Comparison"] {
+  display: none !important;
+}
+
 /* Custom Hero Overlay */
 .vaskoi-hero-overlay {
   position: absolute;

@@ -381,7 +381,7 @@
 	<div id="vaskoi-hero-overlay" class="vaskoi-hero-overlay" style="display:none;">
 	  <div class="vaskoi-hero-content">
 	    <div class="vaskoi-hero-left">
-	      <div class="vaskoi-hero-tag">FULL-STACK DEVELOPMENT</div>
+	      <div class="vaskoi-hero-tag">VASKOI AGENCY</div>
 	      <h1 class="vaskoi-hero-headline">Full-Stack Solutions for <span class="gradient-word">Growing Businesses</span></h1>
 	      <p class="vaskoi-hero-subheading">Web &bull; Mobile &bull; ERP Customization &bull; Integrations</p>
 	      <p class="vaskoi-hero-body">We build scalable web and mobile applications, customize Dynamics 365 Business Central, and design multi-system integrations for startups and enterprises. From MVP to enterprise transformation&mdash;we deliver.</p>
@@ -435,26 +435,81 @@
 	<!-- Start of bodyEnd -->
     <script>
     (function() {
+      // 1. Show hero overlay
       function showHeroOverlay() {
         var overlay = document.getElementById('vaskoi-hero-overlay');
         if (overlay) {
           overlay.style.display = 'flex';
-          // Hide original Framer hero elements
           var heroSections = document.querySelectorAll('.framer-1sbjgsp, .framer-1qb5pft, .framer-qzx8ft');
           heroSections.forEach(function(el) { el.style.display = 'none'; });
         }
       }
-      // Show after Framer renders
-      if (document.readyState === 'complete') {
-        setTimeout(showHeroOverlay, 500);
-      } else {
-        window.addEventListener('load', function() { setTimeout(showHeroOverlay, 500); });
+
+      // 2. Replace SaaS text content with Vaskoi content
+      function replaceText(element, newText) {
+        if (element && element.textContent.trim()) {
+          element.textContent = newText;
+        }
       }
-      // Also try MutationObserver as fallback
+
+      function transformPage() {
+        // Show hero overlay
+        showHeroOverlay();
+
+        // Hide testimonial card in hero
+        var heroCards = document.querySelectorAll('.framer-1eu4jb3, .framer-1x5bets, .framer-1dm99k');
+        heroCards.forEach(function(el) { el.style.display = 'none'; });
+
+        // Replace all text nodes containing SaaS terms
+        var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        var textNodes = [];
+        while (walker.nextNode()) {
+          textNodes.push(walker.currentNode);
+        }
+
+        textNodes.forEach(function(node) {
+          var text = node.textContent;
+          if (text.includes('AI WORKFLOWS')) node.textContent = text.replace('AI WORKFLOWS', 'WEB DEVELOPMENT');
+          if (text.includes('SMART INSIGHTS')) node.textContent = text.replace('SMART INSIGHTS', 'MOBILE APPS');
+          if (text.includes('Automated workflows powered by AI')) node.textContent = text.replace('Automated workflows powered by AI', 'Custom web and mobile applications');
+          if (text.includes('Unified workflows with AI-driven automation')) node.textContent = text.replace('Unified workflows with AI-driven automation', 'End-to-end development solutions');
+          if (text.includes('Real-time insights that drive faster decisions')) node.textContent = text.replace('Real-time insights that drive faster decisions', 'Measurable results for your business');
+          if (text.includes('The Future of Team Operations')) node.textContent = text.replace('The Future of Team Operations', 'Build. Connect. Scale.');
+          if (text.includes('OPRSA')) node.textContent = text.replace('OPRSA', 'Vaskoi');
+          if (text.includes('Opsra')) node.textContent = text.replace(/Opsra/g, 'Vaskoi');
+          if (text.includes('$999/month')) node.textContent = text.replace('$999/month', 'Custom Quote');
+          if (text.includes('$1999/month')) node.textContent = text.replace('$1999/month', 'Custom Quote');
+        });
+
+        // Hide pricing section
+        var pricingSection = document.getElementById('pricing');
+        if (pricingSection) pricingSection.style.display = 'none';
+
+        // Hide comparison section
+        var comparisonSection = document.getElementById('comparison');
+        if (comparisonSection) comparisonSection.style.display = 'none';
+
+        // Fix footer copyright
+        var footerTexts = document.querySelectorAll('footer p, [class*="footer"] p');
+        footerTexts.forEach(function(el) {
+          if (el.textContent.includes('OPRSA') || el.textContent.includes('Opsra')) {
+            el.textContent = el.textContent.replace(/OPRSA|Opsra/g, 'Vaskoi');
+          }
+        });
+      }
+
+      // Run on load
+      if (document.readyState === 'complete') {
+        setTimeout(transformPage, 800);
+      } else {
+        window.addEventListener('load', function() { setTimeout(transformPage, 800); });
+      }
+
+      // MutationObserver as fallback
       var observer = new MutationObserver(function() {
         var overlay = document.getElementById('vaskoi-hero-overlay');
         if (overlay && overlay.style.display === 'none') {
-          showHeroOverlay();
+          transformPage();
         }
       });
       observer.observe(document.body, { childList: true, subtree: true });
