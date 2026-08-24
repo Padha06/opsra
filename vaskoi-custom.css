@@ -29,3 +29,7 @@ img[alt="Vaskoi logo"] {
   width: auto !important;
   object-fit: contain !important;
 }
+
+/* Override Framer splash/loading screen */
+[style*="010101"] { background-color: #000000 !important; }
+[style*="fafafa"] { color: #ffffff !important; }
