@@ -36,3 +36,242 @@ img[alt="Vaskoi logo"] {
 [data-load-progress] { background: #ffffff !important; }
 [data-load-bg] { background: #000000 !important; }
 [data-load-text] { color: #ffffff !important; }
+
+/* ============================================
+   HERO SECTION OVERLAY
+   CSS/JS approach to transform SaaS hero → Portfolio hero
+   ============================================ */
+
+/* Hide the original Framer hero content */
+.framer-1sbjgsp,
+.framer-1qb5pft,
+.framer-qzx8ft {
+  display: none !important;
+}
+
+/* Custom Hero Overlay */
+.vaskoi-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.vaskoi-hero-content {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.vaskoi-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Tag Badge */
+.vaskoi-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #00d4ff;
+  width: fit-content;
+  margin-bottom: 24px;
+  animation: vaskoiFadeIn 0.5s ease-out 0.2s both;
+}
+
+/* Headline */
+.vaskoi-hero-headline {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+  animation: vaskoiFadeInUp 0.6s ease-out 0.3s both;
+}
+
+.vaskoi-hero-headline .gradient-word {
+  background: linear-gradient(90deg, #ffffff 0%, #00d4ff 85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subheading */
+.vaskoi-hero-subheading {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #00d4ff;
+  margin: 0 0 24px 0;
+  letter-spacing: 0.02em;
+  animation: vaskoiFadeInUp 0.6s ease-out 0.4s both;
+}
+
+/* Body */
+.vaskoi-hero-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #b8c8c7;
+  margin: 0 0 32px 0;
+  max-width: 480px;
+  animation: vaskoiFadeInUp 0.6s ease-out 0.5s both;
+}
+
+/* Button Group */
+.vaskoi-hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  animation: vaskoiFadeInUp 0.6s ease-out 0.6s both;
+}
+
+.vaskoi-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #2c7a7b 0%, #1a5c5c 100%);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.vaskoi-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  border-color: #00d4ff;
+}
+
+.vaskoi-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.vaskoi-btn-secondary:hover {
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+
+/* Social Proof */
+.vaskoi-hero-social-proof {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #819895;
+  animation: vaskoiFadeIn 0.6s ease-out 0.7s both;
+}
+
+.vaskoi-hero-social-proof span {
+  color: #00d4ff;
+  font-weight: 500;
+}
+
+/* Right side - keep existing visual, just adjust */
+.vaskoi-hero-right {
+  position: relative;
+}
+
+/* Animations */
+@keyframes vaskoiFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes vaskoiFadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile responsive */
+@media (max-width: 809.98px) {
+  .vaskoi-hero-content {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .vaskoi-hero-tag {
+    margin: 0 auto 20px;
+  }
+
+  .vaskoi-hero-headline {
+    font-size: 32px;
+  }
+
+  .vaskoi-hero-subheading {
+    font-size: 16px;
+  }
+
+  .vaskoi-hero-body {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .vaskoi-hero-buttons {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vaskoi-hero-social-proof {
+    text-align: center;
+  }
+
+  .vaskoi-hero-right {
+    display: none;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 810px) and (max-width: 1319.98px) {
+  .vaskoi-hero-content {
+    padding: 0 40px;
+  }
+
+  .vaskoi-hero-headline {
+    font-size: 42px;
+  }
+}
