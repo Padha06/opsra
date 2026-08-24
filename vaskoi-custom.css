@@ -1,0 +1,24 @@
+:root {
+  --token-5e3da66b-a97d-43a1-9bc2-92e9fd03e565: #1a3a3a !important;
+  --token-382b681b-f39b-4faf-bf00-ab1dc35f01c3: #ffffff !important;
+  --token-b5c844e2-7a54-4d87-9b6d-3a7fb63127aa: #0f2020 !important;
+  --token-13e95528-ee42-4a69-b944-9162fa88ac95: #2c7a7b !important;
+  --token-6f736482-00f8-4928-8b5f-342942aa76e8: #2c7a7b33 !important;
+  --token-41e408ae-9b81-4329-a07e-7c0b5bd5e224: #00d4ff !important;
+  --token-1e115330-1b40-4f89-8b63-be8f9537e9ea: #1a3a3a !important;
+  --token-7502f5ad-b355-4a12-a244-a58429acaad3: #b8c8c7 !important;
+  --token-8d29ccb4-0aa8-491a-8788-1d8fc78460b8: #819895 !important;
+  --token-5ba75b1b-325e-49a3-a831-486521e69d36: #2c7a7b !important;
+  --token-d51e9d36-a7ee-4d08-8c7a-f24b238dcbce: #fcfdfd !important;
+  --token-963e2c37-235b-4610-82cf-ea39892244b7: #151e1d !important;
+  --token-cbc03774-a6e8-40c3-a342-745665f26d63: #2c7a7b !important;
+}
+
+body {
+  background-color: #1a3a3a !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
