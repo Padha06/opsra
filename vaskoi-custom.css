@@ -33,3 +33,6 @@ img[alt="Vaskoi logo"] {
 /* Override Framer splash/loading screen */
 [style*="010101"] { background-color: #000000 !important; }
 [style*="fafafa"] { color: #ffffff !important; }
+[data-load-progress] { background: #ffffff !important; }
+[data-load-bg] { background: #000000 !important; }
+[data-load-text] { color: #ffffff !important; }
